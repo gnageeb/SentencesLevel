@@ -1,0 +1,17 @@
+----------------------------------------------------------------------------------
+-- Training Data
+----------------------------------------------------------------------------------
+trsize = 100
+trainingset={};
+shuffle = torch.randperm(trsize)
+function trainingset:size() return trsize end
+for i=1,trainingset:size() do
+  local input = torch.randn(2);
+  local output = torch.Tensor(1);
+  if input[1]*input[2]>0 then
+    output[1] = -1;
+  else
+    output[1] = 1
+  end
+  trainingset[i] = {input, output}
+end

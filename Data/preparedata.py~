@@ -1,0 +1,14 @@
+import csv
+import nltk
+
+infile = open('A2_B1_Edited.csv', 'rb')
+reader = csv.reader(infile,delimiter='\t')
+outfile1 = open('TokenizedSentences.csv', 'wb')
+outfile2 = open('Labels.csv', 'wb')
+reader = csv.reader(infile,delimiter='\t')
+writer1 = csv.writer(outfile1,delimiter='\t')
+writer2 = csv.writer(outfile2,delimiter='\t')
+for row in reader:
+	writer1.writerow(nltk.word_tokenizer(row[1]))
+	writer2.writerow(row[0])
+
